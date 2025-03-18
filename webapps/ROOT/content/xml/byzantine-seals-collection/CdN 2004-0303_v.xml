@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="https://sigidoc.github.io/Schema/schema/latest/sigidoc.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://sigidoc.github.io/Schema/schema/latest/sigidoc.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title xml:lang="en">Samuel Mauropodis, chartophylax</title>
+            <title xml:lang="fr">Samuel Mauropodès, chartophylax</title>
+            <editor role="seal-editor" xml:id="MCP">Maria Campagnolo-Pothitou</editor>
+            <editor role="seal-editor" xml:id="JCC">Jean-Claude Cheynet</editor>
+            <funder>
+               <orgName corresp="https://www.mahmah.ch/">MAH-Musée d'art et d'histoire - Genève,
+                  Cabinet de numismatique</orgName>, Suisse </funder>
+            <principal ref="#MCP"/>
+         </titleStmt>
+         <editionStmt>
+            <edition>
+               <seg xml:lang="fr">Amélioration digitale</seg>
+               <seg xml:lang="en">Digital enhancement</seg>
+            </edition>
+            <editor role="digital-editor" ref="#MCP" when="2025-02-20">Maria Campagnolo-Pothitou</editor>
+         </editionStmt>
+         <publicationStmt>
+            <authority>MAH-Musée d'art et d'histoire - Genève, Cabinet de numismatique</authority>
+            <idno type="filename">CdN 2004-0303</idno>
+            <idno type="SigiDocID">s-CJ3GPz</idno>
+            <!--  to be compiled with automatically generated IDs: https://sigidoc.cceh.uni-koeln.de/newid.xml  -->
+            <idno type="sequence"/>
+            <!--  to be compiled automatically; leave as is  -->
+            <date when="2024-08-06"/>
+            <availability>
+               <licence target="https://creativecommons.org/licenses/by-nc-sa/4.0/"
+                  >Attribution-NonCommercial-ShareAlike 4.0 International - CC BY-NC-SA
+                  4.0</licence>
+            </availability>
+         </publicationStmt>
+         <sourceDesc>
+            <listPerson type="issuer">
+               <person gender="M" role="secular-church">
+                  <persName xml:lang="grc">
+                     <forename>Σαμουήλ</forename>
+                     <surname>Μαυροπόδης</surname>
+                  </persName>
+                  <persName xml:lang="fr">
+                     <forename>Samuel</forename>
+                     <surname>Mauropodès</surname>
+                  </persName>
+                  <persName xml:lang="en">
+                     <forename>Samuel</forename>
+                     <surname>Mavropodis</surname>
+                  </persName>
+                  <idno type="PBW" ana="http://pbw2016.kdl.kcl.ac.uk/person/Samuel/20107/">Samuel 20107</idno>
+                  <idno type="PBE"/>
+                  <idno type="PLP"/>
+                  <idno type="PLRE"/>
+                  <idno type="PcBE"/>
+                  <idno type="PmbZ"/>
+               </person>
+            </listPerson>
+            <msDesc>
+               <msIdentifier>
+                  <country>
+                     <seg xml:lang="en">Switzerland</seg>
+                     <seg xml:lang="fr">Suisse</seg>
+                  </country>
+                  <settlement>
+                     <seg xml:lang="en">
+                        <placeName ref="https://www.geonames.org/2660646/geneve.html">City of
+                           Geneva</placeName>
+                     </seg>
+                     <seg xml:lang="fr">
+                        <placeName ref="https://www.geonames.org/2660646/geneve.html">Ville de
+                           Genève</placeName>
+                     </seg>
+                  </settlement>
+                  <institution>MAH-Musée d'art et d'histoire</institution>
+                  <repository>Cabinet de numismatique</repository>
+                  <collection type="public">
+                     <rs type="collection-name" xml:lang="en">Byzantine seals collection</rs>
+                     <rs type="collection-name" xml:lang="fr">Collection de sceaux byzantins</rs>
+                  </collection>
+                  <idno type="inv-nr-current">CdN 2004-0303</idno>
+                  <altIdentifier>
+                     <repository/>
+                     <idno type="inv-nr-former"/>
+                  </altIdentifier>
+               </msIdentifier>
+               <msContents>
+                  <!--https://github.com/SigiDoc/Guidelines/wiki/5.-Controlled-vocabularies#seals-category-->
+                  <summary n="whole">
+                     <seg xml:lang="fr">Ecclésiastique</seg>
+                     <seg xml:lang="en">Ecclesiastical</seg>
+                  </summary>
+               </msContents>
+               <physDesc>
+                  <objectDesc>
+                     <supportDesc>
+                        <support>
+                           <objectType>
+                              <term>
+                                 <seg xml:lang="fr">Sceau</seg>
+                                 <seg xml:lang="en">Seal</seg>
+                              </term>
+                              <interp type="workType" xml:lang="fr">Empreinte originale</interp>
+                              <interp type="workType" xml:lang="en">Original impression</interp>
+                           </objectType>
+                           <material>
+                              <seg xml:lang="fr">Plomb</seg>
+                              <seg xml:lang="en">Lead</seg>
+                           </material>
+                           <dimensions type="support" unit="mm">
+                              <dim type="diameter">34,22/32,01</dim>
+                              <!-- mesure du champ? -->
+                           </dimensions>
+                           <measure type="weight" unit="g">27,471</measure>
+                           <measure type="axis" unit="clock"/>
+                           <measure type="overstrikeOrient" unit="clock"/>
+                           <measure type="channelOrient" unit="clock">1-7</measure>
+                           <measure type="countermark" unit="clock"/>
+                        </support>
+                        <condition rend="well-preserved well-struck chipped">
+                           <p xml:lang="en">The seal is well preserved and well struck; slightly
+                              chipped at the channel openings and partly damaged on the slice. </p>
+                           <p xml:lang="fr">Le sceau est bien conservé et bien frappé; légèrement
+                              échancré aux orifices du canal et rapé sur une partie de la tranche. </p>
+                        </condition>
+                     </supportDesc>
+                     <layoutDesc>
+                        <layout n="whole">
+                           <rs type="execution">
+                              <seg xml:lang="fr">Frappé</seg>
+                              <seg xml:lang="en">Struck</seg>
+                           </rs>
+                           <rs type="shape">
+                              <seg xml:lang="fr">Ronde</seg>
+                              <seg xml:lang="en">Round</seg>
+                           </rs>
+                           <rs type="matrix" subtype="not-surviving">
+                              <idno type="SigiDoc">m-Ytg2UO</idno>
+                              <!--  to be compiled with automatically generated IDs: https://sigidoc.cceh.uni-koeln.de/newid.xml  -->
+                              <idno type="PBW" corresp="http://pbw2016.kdl.kcl.ac.uk/boulloterion/5550/">5550</idno>
+                              <!-- to be used if the seal has a parallel in the PBW with a boulloterion registered there -->
+                           </rs>
+                        </layout>
+                     </layoutDesc>
+                  </objectDesc>
+               </physDesc>
+               <history>
+                  <origin>
+                     <origPlace>
+                        <seg xml:lang="fr">
+                           <placeName></placeName>
+                        </seg>
+                        <seg xml:lang="en">
+                           <placeName></placeName>
+                        </seg>
+                     </origPlace>
+                     <origDate type="analysis" notBefore="1151" notAfter="1200"
+                        evidence="epigraphy prosopography titulature"
+                        cert="high" resp="#MCP #JCC">
+                        <seg xml:lang="en">Second half of the 12th century</seg>
+                        <seg xml:lang="fr">Seconde moitié du XIIe siècle</seg>
+                     </origDate>
+                  </origin>
+                  <provenance type="transferred" subtype="donated" when="2004-11-24">
+                     <!-- pas sûr de subtype et when -->
+                     <p xml:lang="en">George Zacos collection</p>
+                     <p xml:lang="fr">Collection Georges Zacos</p>
+                  </provenance>
+                  <acquisition>
+                     <p xml:lang="en">Donation of the Migore Foundation, Janet Zakos legacy, <date
+                           when="2004-11-24">24th November 2004</date>
+                     </p>
+                     <p xml:lang="fr">Don de la Fondation Migore, legs Janet Zakos, <date
+                           when="2004-11-24">24 Novembre 2004</date>
+                     </p>
+                  </acquisition>
+               </history>
+               <msPart n="r">
+                  <msIdentifier/>
+                  <msContents>
+                     <summary n="r">
+                        <seg xml:lang="en">Obverse</seg>
+                     </summary>
+                  </msContents>
+                  <physDesc>
+                     <objectDesc>
+                        <layoutDesc>
+                           <layout n="r">
+                              <dimensions type="written" unit="mm">
+                                 <dim type="diameter"/>
+                              </dimensions>
+                              <p xml:lang="fr">Iconographie avec épigraphe en colonne.</p>
+                              <p xml:lang="en">Iconography with a vertical inscription.</p>
+                           </layout>
+                        </layoutDesc>
+                     </objectDesc>
+                     <handDesc>
+                        <handNote n="r">
+                           <seg xml:lang="fr"/>
+                           <seg xml:lang="en"/>
+                        </handNote>
+                     </handDesc>
+                     <decoDesc>
+                        <decoNote>
+                           <figure>
+                              <figDesc n="r" xml:lang="fr" ana="person male prophet Samuel gospel">Le prophète Samuel barbu de face, en pied sur un souppedion circulaire,
+                                 genou droit légèrement fléchi tenant le Livre de ses Prophéties de la main gauche, la main droite est ramenée devant la poitrine.</figDesc>
+                              <figDesc n="r" xml:lang="en" ana="person male prophet Samuel gospel">Prophet Samuel bearded facing, standing on a circular souppedion, right knee bent,
+                                 holding his Propheties on the left hand, keeping the right one before his chest.</figDesc>
+                              <figDesc n="decoR" xml:lang="fr">Cercle de grènetis.</figDesc>
+                              <figDesc n="decoR" xml:lang="en">Border of dots.</figDesc>
+                           </figure>
+                        </decoNote>
+                     </decoDesc>
+                  </physDesc>
+               </msPart>
+               <msPart n="v">
+                  <msIdentifier/>
+                  <msContents>
+                     <summary n="v">
+                        <seg xml:lang="en">Reverse</seg>
+                     </summary>
+                  </msContents>
+                  <physDesc>
+                     <objectDesc>
+                        <layoutDesc>
+                           <layout n="v">
+                              <dimensions type="written" unit="mm">
+                                 <dim type="diameter"/>
+                              </dimensions>
+                              <p xml:lang="en">Linear legend of 5 lines</p>
+                              <p xml:lang="fr">Légende linéaire sur 5 lignes</p>
+                           </layout>
+                        </layoutDesc>
+                     </objectDesc>
+                     <handDesc>
+                        <handNote n="v">
+                           <seg xml:lang="fr"/>
+                           <seg xml:lang="en"/>
+                        </handNote>
+                     </handDesc>
+                     <decoDesc>
+                        <decoNote>
+                           <figure>
+                              <figDesc n="v" xml:lang="fr" ana="person male prophet Samuel standing gospel">Le prophète Samuel vêtu du chitôn et de l'himation, de face, en pied sur un souppedion rond, tenant le Livre de ses Ecritures..</figDesc>
+                              <figDesc n="v" xml:lang="en" ana="person male prophet Samuel standing gospel">The prophet Samuel dressed with a chiton and himation, standing facing on a circular souppedion, holding the Book of his propheties..</figDesc>
+                              <figDesc n="decoV" xml:lang="fr">Cercle de grènetis; la première ligne est précédée d'une croisette.</figDesc>
+                              <figDesc n="decoV" xml:lang="en">Border of dots; the first line is preceeded by a crosslet.</figDesc>
+                           </figure>
+                        </decoNote>
+                     </decoDesc>
+                  </physDesc>
+               </msPart>
+            </msDesc>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <editorialDecl>
+            <p/>
+         </editorialDecl>
+      </encodingDesc>
+      <revisionDesc>
+         <change when="2025-01-29" who="#MCP">Creation of the XML record.</change>
+         <change when="2025-01-29" who="#MCP"></change>
+      </revisionDesc>
+   </teiHeader>
+   <facsimile>
+      <surfaceGrp>
+         <surface n="r">
+            <desc>Obverse</desc>
+            <graphic type="photo" url="CdN2004-0303_2.jpg">
+               <desc xml:lang="en">CdN 2004-0303, obverse</desc>
+               <desc xml:lang="fr">CdN 2004-0303, avers</desc>
+            </graphic>
+         </surface>
+         <surface n="v">
+            <desc>Reverse</desc>
+            <graphic type="photo" url="CdN2004-0303_2.jpg">
+               <desc xml:lang="en">CdN 2004-0303, reverse</desc>
+               <desc xml:lang="de">CdN 2004-0303, revers</desc>
+            </graphic>
+         </surface>
+      </surfaceGrp>
+   </facsimile>
+   <text>
+      <body>
+         <div type="edition" subtype="editorial" xml:space="preserve"> 
+            <div type="textpart" subtype="label" rend="columns" n="obv" xml:lang="grc"><!--the values of the xml:lang are here: https://github.com/SigiDoc/EFES-SigiDoc/wiki/Languages-and-scripts#iana-language-and-script-subtags-->
+              <ab>
+                <cb n="a"/>Ὁ <expan><abbr>Πρ</abbr><ex>ο</ex><abbr>φ</abbr><ex>ή</ex><abbr>τ</abbr><ex>ης</ex></expan>
+                    <cb n="b"/>Σαμουὴλ
+              </ab>
+            </div>
+                  <div type="textpart" subtype="face" n="rev" rend="linear" xml:lang="grc">
+                      <ab>
+                          <lb n="1"/>Ὁ <rs type="office" subtype="secular-church" ref="#of0236">χαρ
+                          <lb n="2"/>τοφύλαξ</rs>
+                          <lb n="3"/><forename>Σαμουὴλ</forename>
+                          <lb n="4"/><name>Μαυροπό
+                          <lb n="5"/>δης</name>
+                    </ab>
+                  </div>
+            </div>
+         <div type="edition" subtype="diplomatic" xml:space="preserve"> 
+                  <div type="textpart" subtype="label" rend="columns" n="obv" xml:lang="grc"><!--the values of the xml:lang are here: https://github.com/SigiDoc/EFES-SigiDoc/wiki/Languages-and-scripts#iana-language-and-script-subtags-->
+              <ab>
+                 <cb n="a"/>Ο̣|||ṭ͵
+                 <cb n="b"/>CA|M|η   
+              </ab>
+            </div>
+                  <div type="textpart" subtype="face" n="rev" rend="linear" xml:lang="grc">
+                      <ab>
+                          <lb n="1"/>ΟΧΑΡ
+                         <lb n="2"/>ΤΟυΛΑξ 
+                         <lb n="3"/>ΣΑΜΟυΗΛ
+                         <lb n="4"/>ΜΑυΡΟΠΟ
+                         <lb n="5"/>ΔΗΣ
+                      </ab>
+                  </div>
+            </div>
+         <div type="translation">
+            <p>+ Ὁ προφήτης Σαμουήλ/Ὀ χαρτοφύλαξ Σαμουὴλ Μαυροπόδης</p>
+            <p xml:lang="en">The prophet Samuel. The chartophylax Samuel Mavropodis.</p>
+            <p xml:lang="fr">Le prophète Samuel. Le chartophylax Samuel Mavropodès</p>
+         </div>
+         <div type="commentary" subtype="text"><!-- renvois internes à refaire -->
+            <p xml:lang="fr">Samuel Mauropous entra jeune dans le clergé de Sainte-Sophie où il fait une longue carrière. 
+               En tant que chartophylax, il a succédé à Jean Hagiophlôritès, sans doute en janvier 1170, lorsque son proche parent Michel,
+               consul des philosophes, devint patriarche. On peut lui attribuer le sceau du lévite (prêtre) Mauropous,
+               mais il st difficile de déterminer sa date, avant, après ou pendant l'exercice du chartophylax.</p>
+            <p xml:lang="en">Samuel Mauropous entered the clergy of Saint Sophia at a young age and had a long career there. 
+               As chartophylax, he succeeded John Hagiophlôritès, probably in January 1170, when his close relative Michael,
+               consul of the philosophers, became patriarch. The seal of the levite (priest)Mauropous can be attributed to him,
+               but it is difficult to determine the date: before, after or during the exercise of the function ofchartophylax.</p>
+            <p xml:lang="fr">Basile et Michel Mauropous qui ont laissé aussi un sceau au début du XIIe siècle ont été probablement membres de la même famille.</p>
+            <p xml:lang="en">Basile and Michel Mauropous who struck a seal at the beginning of the 12th century are most probable members of the same family.</p>
+         </div>
+         <div type="bibliography" subtype="edition">
+            <p>
+               <bibl>
+                  <ptr target="ZacosGenève"/>, n° <citedRange unit="entry">264</citedRange>.
+               </bibl>
+            </p>
+         </div>
+         <div type="bibliography" subtype="parallels">
+            <p>DO 58.106.5453 <bibl>
+               <ptr target="LaurentCorpus2"/>, n° <citedRange unit="entry">1615 bis</citedRange>. </bibl>
+            </p>
+            <p>Ermitage, M-6648 <bibl>
+               <ptr target="Sandrovskaja"/>, p. <citedRange unit="page">213-238</citedRange>,
+               n° <citedRange unit="entry">2</citedRange>. </bibl>
+            </p>
+            <p>Bulgarie, collection privée <bibl>
+               <ptr target="JordanovCorpus2"/>, n° <citedRange unit="entry">455</citedRange></bibl>; <bibl>
+            <ptr target="JordanovCorpus3"/>, n° <citedRange unit="entry">1625</citedRange>. </bibl>
+            </p> 
+         </div>
+         <div type="bibliography" subtype="discussion">
+         </div>
+      </body>
+   </text>
+</TEI>
