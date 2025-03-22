@@ -1,3 +1,6 @@
 [submodule "webapps/ROOT/kiln/stylesheets/epidoc"]
 	path = webapps/ROOT/kiln/stylesheets/epidoc
 	url = https://github.com/SigiDoc/Stylesheets
+[submodule "webapps/ROOT/content/xml/epidoc/EFES-MAH-byzantine-seals-zacos-collection"]
+	path = webapps/ROOT/content/xml/epidoc/EFES-MAH-byzantine-seals-zacos-collection
+	url = https://github.com/mahgeneve/EFES-MAH-byzantine-seals-zacos-collection
