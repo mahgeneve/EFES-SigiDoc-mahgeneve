@@ -159,6 +159,8 @@ ul.index-instances {
 .landing-img {
     margin-bottom: 20px;
     margin-top: 20px;
+    width: 50%;
+    margin-left: 25%;
 }
 
 .lp-h1 {
