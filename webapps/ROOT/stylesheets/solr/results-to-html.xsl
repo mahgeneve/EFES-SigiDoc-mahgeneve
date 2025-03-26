@@ -209,13 +209,16 @@
         
         <div class="thumbcontainer">
           <div class="img-text">
-            <img class="thumbnail" src="/assets/images/snapshot1.jpg"/>
+            <xsl:if test="str[@name='imgr']">
+            <img class="thumbnail" src="{str[@name='imgr']}"/>
             <figcaption class="thumbtext">obverse</figcaption>
-            
+            </xsl:if>
           </div>
           <div class="img-text">
-            <img class="thumbnail" src="/assets/images/snapshot2.jpg"/>
+            <xsl:if test="str[@name='imgv']">
+            <img class="thumbnail" src="{str[@name='imgv']}"/>
             <figcaption class="thumbtext">reverse</figcaption>
+            </xsl:if>
           </div>
         </div>
       </div>

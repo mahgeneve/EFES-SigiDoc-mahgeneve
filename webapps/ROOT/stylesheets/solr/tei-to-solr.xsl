@@ -317,6 +317,18 @@
     </field>
   </xsl:template>
   
+  <xsl:template match="//tei:surface[@n='r']//tei:graphic[@type='photo']/@url" mode="facet_imgr">
+    <field name="imgr">
+      <xsl:value-of select="."/>
+    </field>
+  </xsl:template>
+  
+  <xsl:template match="//tei:surface[@n='v']//tei:graphic[@type='photo']/@url" mode="facet_imgv">
+    <field name="imgv">
+      <xsl:value-of select="."/>
+    </field>
+  </xsl:template>
+  
   <!--
   <xsl:template match="//tei:collection//tei:rs[@xml:lang='en']" mode="facet_collection">
     <field name="origdate">
@@ -357,6 +369,9 @@
     <xsl:call-template name="field_translation"/>
     <xsl:call-template name="field_origDate"/>
     <xsl:call-template name="field_inv"/>
+    
+    <xsl:call-template name="field_imgr"/>
+    <xsl:call-template name="field_imgv"/>
   </xsl:template>
   
   <xsl:template name="field_sigidoc_id_number">
@@ -474,5 +489,12 @@
       select="//tei:msDesc/tei:msIdentifier/tei:idno[@type='inv-nr-current']"/>
   </xsl:template>
   
-  
+  <xsl:template name="field_imgr">
+    <xsl:apply-templates 
+      select="//tei:surface[@n='r']//tei:graphic[@type='photo']/@url" mode="facet_imgr"/>
+  </xsl:template>
+  <xsl:template name="field_imgv">
+    <xsl:apply-templates 
+      select="//tei:surface[@n='v']//tei:graphic[@type='photo']/@url" mode="facet_imgv"/>
+  </xsl:template>
 </xsl:stylesheet>
