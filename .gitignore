@@ -10,6 +10,6 @@ docs/build
 .DS_Store
 Thumbs.db
 webapps/ROOT/content/xml/authority
-# webapps/ROOT/content/xml/epidoc
+webapps/ROOT/content/xml/epidoc
 .idea
 *.iml
