@@ -13,3 +13,4 @@ webapps/ROOT/content/xml/authority
 webapps/ROOT/content/xml/epidoc
 .idea
 *.iml
+*.log
