@@ -298,6 +298,7 @@ body {
     padding: 0 18px;
     background-color: #efefef;
     overflow: hidden;
+    justify-content: space-between;
 }
 
 .result-details span p {
