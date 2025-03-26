@@ -299,9 +299,12 @@
     </field>
   </xsl:template>
   
-  <xsl:template match="//tei:div[@type='translation']//tei:p[@xml:lang='en']" mode="facet_translation">
+  <xsl:template match="//tei:div[@type='translation']//tei:p" mode="facet_translation">
     <field name="translation">
-      <xsl:value-of select="."/>
+      <xsl:for-each select=".">
+        <xsl:value-of select="concat(@xml:lang,'|',normalize-space(string-join(.,' ')))"/>
+      </xsl:for-each>
+      
     </field>
   </xsl:template>
   
@@ -476,7 +479,7 @@
   
   <xsl:template name="field_translation">
     <xsl:apply-templates mode="facet_translation"
-      select="//tei:div[@type='translation']//tei:p[@xml:lang='en']"/>
+      select="//tei:div[@type='translation']"/>
   </xsl:template>
   
   <xsl:template name="field_origDate">
