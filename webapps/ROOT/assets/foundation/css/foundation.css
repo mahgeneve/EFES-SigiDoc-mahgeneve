@@ -1589,7 +1589,7 @@ label {
 
 /* Separate prefix and postfix styles when on span or label so buttons keep their own */
 span.prefix, label.prefix {
-  background: #f2f2f2;
+  background: white;
   border-color: #d9d9d9;
   border-right: none;
   color: #333333; }
@@ -1604,7 +1604,7 @@ span.prefix, label.prefix {
     border-top-left-radius: 3px; }
 
 span.postfix, label.postfix {
-  background: #f2f2f2;
+  background: white;
   border-color: #cccccc;
   border-left: none;
   color: #333333; }
@@ -2409,7 +2409,7 @@ label.error {
   width: 100%;
   position: relative;
   display: block;
-  margin-bottom: 1.25em; }
+  margin-bottom: 0.9em; }
   [data-section='tabs']:not([data-section-resized]):not([data-section-small-style]), .section-container.tabs:not([data-section-resized]):not([data-section-small-style]) {
     visibility: hidden; }
   [data-section='tabs'] > section > [data-section-title], [data-section='tabs'] > section > .title, [data-section='tabs'] > .section > [data-section-title], [data-section='tabs'] > .section > .title, [data-section='tabs'] > [data-section-region] > [data-section-title], [data-section='tabs'] > [data-section-region] > .title, .section-container.tabs > section > [data-section-title], .section-container.tabs > section > .title, .section-container.tabs > .section > [data-section-title], .section-container.tabs > .section > .title, .section-container.tabs > [data-section-region] > [data-section-title], .section-container.tabs > [data-section-region] > .title {
@@ -4101,19 +4101,20 @@ ul.pagination {
     ul.pagination li.unavailable:hover a, ul.pagination li.unavailable a:focus {
       background: transparent; }
     ul.pagination li.current a {
-      background: #2ba6cb;
+      background: #562c2c;
       color: white;
       font-weight: bold;
       cursor: default; }
       ul.pagination li.current a:hover, ul.pagination li.current a:focus {
-        background: #2ba6cb; }
+        background: #562c2c; }
   ul.pagination li {
     float: left;
     display: block; }
 
 /* Pagination centred wrapper */
 .pagination-centered {
-  text-align: center; }
+  text-align: center;
+  margin-top: 20px !important; }
   .pagination-centered ul.pagination li {
     float: none;
     display: inline-block; }
@@ -4125,7 +4126,7 @@ ul.pagination {
   border-color: #d9d9d9;
   margin-bottom: 1.25em;
   padding: 1.25em;
-  background: #f2f2f2; }
+  background: white; }
   .panel > :first-child {
     margin-top: 0; }
   .panel > :last-child {

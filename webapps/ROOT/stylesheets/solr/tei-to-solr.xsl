@@ -26,13 +26,13 @@
       <xsl:value-of select="."/>
     </field>
   </xsl:template>
-  <xsl:template match="//tei:persName[@xml:lang='en']/tei:forename[ancestor::tei:listPerson/tei:person]" 
+  <xsl:template match="//tei:persName[@xml:lang='en']/tei:forename[ancestor::tei:listPerson/tei:person][text()]" 
     mode="facet_personal_names">
     <field name="personal_names">
       <xsl:value-of select="."/>
     </field>
   </xsl:template>
-  <xsl:template match="//tei:persName[@xml:lang='en']/tei:surname[ancestor::tei:listPerson/tei:person]"
+  <xsl:template match="//tei:persName[@xml:lang='en']/tei:surname[ancestor::tei:listPerson/tei:person][text()]"
     mode="facet_family_names">
     <field name="family_names">
       <xsl:value-of select="."/>
@@ -113,7 +113,7 @@
       <xsl:variable name="geography" select="doc('../../content/xml/authority/geography.xml')"/>
       <xsl:variable name="geo-id" select="substring-after(@ref, '#')"/>
       <xsl:value-of
-        select="$geography//tei:place[@xml:id = $geo-id]//tei:placeName[@xml:lang = 'grc' or @xml:lang = 'la']"
+        select="$geography//tei:place[@xml:id = $geo-id]//tei:placeName[@xml:lang = 'en']"
       />
     </field>
   </xsl:template>
@@ -134,7 +134,7 @@
       <xsl:variable name="offices" select="doc('../../content/xml/authority/offices.xml')"/>
       <xsl:variable name="ref-id" select="substring-after(@ref, '#')"/>
       <xsl:value-of
-        select="$offices//tei:list[@type = 'civil']//tei:item[@xml:lang = 'en']//tei:term[@xml:id = $ref-id]"
+        select="$offices//tei:item[@xml:id = $ref-id]//tei:term[@xml:lang = 'en']"
       />
     </field>
   </xsl:template>
@@ -145,7 +145,7 @@
       <xsl:variable name="offices" select="doc('../../content/xml/authority/offices.xml')"/>
       <xsl:variable name="ref-id" select="substring-after(@ref, '#')"/>
       <xsl:value-of
-        select="$offices//tei:list[@type = 'ecclesiastical']//tei:item[@xml:lang = 'en']//tei:term[@xml:id = $ref-id]"
+        select="$offices//tei:item[@xml:id = $ref-id]//tei:term[@xml:lang = 'en']"
       />
     </field>
   </xsl:template>
@@ -156,7 +156,7 @@
       <xsl:variable name="offices" select="doc('../../content/xml/authority/offices.xml')"/>
       <xsl:variable name="ref-id" select="substring-after(@ref, '#')"/>
       <xsl:value-of
-        select="$offices//tei:list[@type = 'military']//tei:item[@xml:lang = 'en']//tei:term[@xml:id = $ref-id]"
+        select="$offices//tei:item[@xml:id = $ref-id]//tei:term[@xml:lang = 'en']"
       />
     </field>
   </xsl:template>
@@ -280,7 +280,7 @@
   <xsl:template
     match="tei:listPerson/tei:person/@role"
     mode="facet_milieu">
-      <xsl:variable name="tokenize" select="tokenize(., ' ')"/>
+      <xsl:variable name="tokenize" select="tokenize(normalize-space(.), ' ')"/>
       <xsl:for-each select="$tokenize">
         <field name="milieu">
           <xsl:variable name="normalized" select="replace(.,'-',' ')"/>
@@ -299,14 +299,35 @@
     </field>
   </xsl:template>
   
-  <xsl:template match="//tei:div[@type='translation']//tei:p[@xml:lang='en']" mode="facet_translation">
+  <xsl:template match="//tei:div[@type='translation']//tei:p" mode="facet_translation">
     <field name="translation">
-      <xsl:value-of select="."/>
+      <xsl:for-each select=".">
+        <xsl:value-of select="concat(@xml:lang,'|',normalize-space(string-join(.,' ')))"/>
+      </xsl:for-each>
+      
     </field>
   </xsl:template>
   
   <xsl:template match="//tei:origDate//tei:seg[@xml:lang='en']" mode="facet_origDate">
     <field name="origdate">
+      <xsl:value-of select="."/>
+    </field>
+  </xsl:template>
+  
+  <xsl:template match="//tei:msDesc/tei:msIdentifier/tei:idno[@type='inv-nr-current']" mode="facet_inv">
+    <field name="inv">
+      <xsl:value-of select="."/>
+    </field>
+  </xsl:template>
+  
+  <xsl:template match="//tei:surface[@n='r']//tei:graphic[@type='photo']/@url" mode="facet_imgr">
+    <field name="imgr">
+      <xsl:value-of select="."/>
+    </field>
+  </xsl:template>
+  
+  <xsl:template match="//tei:surface[@n='v']//tei:graphic[@type='photo']/@url" mode="facet_imgv">
+    <field name="imgv">
       <xsl:value-of select="."/>
     </field>
   </xsl:template>
@@ -350,7 +371,10 @@
     <xsl:call-template name="field_language"/>
     <xsl:call-template name="field_translation"/>
     <xsl:call-template name="field_origDate"/>
+    <xsl:call-template name="field_inv"/>
     
+    <xsl:call-template name="field_imgr"/>
+    <xsl:call-template name="field_imgv"/>
   </xsl:template>
   
   <xsl:template name="field_sigidoc_id_number">
@@ -455,7 +479,7 @@
   
   <xsl:template name="field_translation">
     <xsl:apply-templates mode="facet_translation"
-      select="//tei:div[@type='translation']//tei:p[@xml:lang='en']"/>
+      select="//tei:div[@type='translation']"/>
   </xsl:template>
   
   <xsl:template name="field_origDate">
@@ -463,5 +487,17 @@
       select="//tei:origDate//tei:seg[@xml:lang='en']"/>
   </xsl:template>
   
+  <xsl:template name="field_inv">
+    <xsl:apply-templates mode="facet_inv"
+      select="//tei:msDesc/tei:msIdentifier/tei:idno[@type='inv-nr-current']"/>
+  </xsl:template>
   
+  <xsl:template name="field_imgr">
+    <xsl:apply-templates 
+      select="//tei:surface[@n='r']//tei:graphic[@type='photo']/@url" mode="facet_imgr"/>
+  </xsl:template>
+  <xsl:template name="field_imgv">
+    <xsl:apply-templates 
+      select="//tei:surface[@n='v']//tei:graphic[@type='photo']/@url" mode="facet_imgv"/>
+  </xsl:template>
 </xsl:stylesheet>

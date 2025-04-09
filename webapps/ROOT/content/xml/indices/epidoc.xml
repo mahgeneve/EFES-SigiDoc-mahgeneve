@@ -3,7 +3,7 @@
   <teiHeader>
     <fileDesc>
       <titleStmt>
-        <title>SigiDoc Indices</title>
+        <title>Indices</title>
       </titleStmt>
       <publicationStmt>
         <p/>
@@ -14,13 +14,13 @@
     </fileDesc>
   </teiHeader>
   <text>
-    <front>
+    <!--<front>
       <div>
         <p>These are the main indices designed for a SigiDoc corpus: each project will be able to
           make their own choices, but consistency among all the SigiDoc-based projects is highly
           recommended.</p>
       </div>
-    </front>
+    </front>-->
     <body>
 
       <!--Prosopography and geography-->
@@ -82,7 +82,7 @@
 
       
 
-      <div xml:id="titles">
+      <!--<div xml:id="titles">
         <head n="2">Titles</head>
 
         <div type="headings">
@@ -93,11 +93,11 @@
         </div>
 
         
-      </div>
+      </div>-->
 
       <!--Religious appellatives-->
 
-      <div xml:id="marianTerms">
+      <!--<div xml:id="marianTerms">
         <head n="3">Marian terms</head>
 
         <div type="headings">
@@ -109,9 +109,9 @@
         </div>
 
         
-      </div>
+      </div>-->
 
-      <div xml:id="christTerms">
+      <!--<div xml:id="christTerms">
         <head n="3">Christ-related terms</head>
 
         <div type="headings">
@@ -123,9 +123,9 @@
         </div>
 
         
-      </div>
+      </div>-->
 
-      <div xml:id="saintsTerms">
+      <!--<div xml:id="saintsTerms">
         <head n="3">Saints-related terms</head>
 
         <div type="headings">
@@ -137,11 +137,11 @@
         </div>
 
         
-      </div>
+      </div>-->
 
       <!--Iconography and monograms-->
 
-      <div xml:id="iconography">
+      <!--<div xml:id="iconography">
         <head n="4">Iconography</head>
 
         <div type="headings">
@@ -152,9 +152,9 @@
         </div>
 
         
-      </div>
+      </div>-->
 
-      <div xml:id="monogram">
+      <!--<div xml:id="monogram">
         <head n="4">Monograms</head>
 
         <div type="headings">
@@ -166,14 +166,12 @@
         </div>
 
         
-      </div>
+      </div>-->
 
       <!--Words and legend’s features-->
 
-     
-        
 
-      <div xml:id="lemma">
+      <!--<div xml:id="lemma">
         <head n="5">Lemmata</head>
 
         <div type="headings">
@@ -185,7 +183,7 @@
         </div>
 
         
-      </div>
+      </div>-->
 <!--
       <div xml:id="legendsCases">
         <head n="5">Legends’ cases</head>
@@ -201,7 +199,7 @@
       </div>
       -->
 
-      <div xml:id="metrical">
+      <!--<div xml:id="metrical">
         <head n="5">Metrical legends</head>
 
         <div type="headings">
@@ -213,7 +211,7 @@
         </div>
 
         
-      </div>
+      </div>-->
 
       <div xml:id="invocation">
         <head n="5">Invocations</head>
@@ -227,7 +225,7 @@
 
       </div>
       
-      <div xml:id="symbols">
+      <!--<div xml:id="symbols">
         <head n="1">Symbols</head>
         
         <div type="headings">
@@ -238,7 +236,7 @@
           </list>
         </div>
         
-      </div>
+      </div>-->
 
     </body>
   </text>

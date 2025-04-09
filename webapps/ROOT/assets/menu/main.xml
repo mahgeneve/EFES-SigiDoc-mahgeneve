@@ -16,29 +16,27 @@
       i18n:key="menu-index-dignities"/>
     <item label="Offices" match="local-index-display-html" params="epidoc offices"
       i18n:key="menu-index-offices"/>
-    <item label="Titles" match="local-index-display-html" params="epidoc titles"
-      i18n:key="menu-index-titles"/>
+    <!--<item label="Titles" match="local-index-display-html" params="epidoc titles"
+      i18n:key="menu-index-titles"/>-->
     <!--Religious appellatives-->
-    <item label="Marian terms" match="local-index-display-html" params="epidoc marianTerms"
-      i18n:key="menu-index-marianTerms"/>
-    <item label="Christ-related terms" match="local-index-display-html" params="epidoc christTerms"
-      i18n:key="menu-index-christTerms"/>
-    <item label="Saints-related terms" match="local-index-display-html" params="epidoc saintsTerms"
-      i18n:key="menu-index-saintsTerms"/>
+    <!--<item label="Marian terms" match="local-index-display-html" params="epidoc marianTerms"
+      i18n:key="menu-index-marianTerms"/>-->
+    <!--<item label="Christ-related terms" match="local-index-display-html" params="epidoc christTerms"
+      i18n:key="menu-index-christTerms"/>-->
+    <!--<item label="Saints-related terms" match="local-index-display-html" params="epidoc saintsTerms"
+      i18n:key="menu-index-saintsTerms"/>-->
     <!--Iconography and monograms-->
-    <item label="Iconography" match="local-index-display-html" params="epidoc iconography"
-      i18n:key="menu-index-iconography"/>
-    <item label="Monograms" match="local-index-display-html" params="epidoc monogram"
-      i18n:key="menu-index-monogram"/>
+    <!--<item label="Iconography" match="local-index-display-html" params="epidoc iconography"
+      i18n:key="menu-index-iconography"/>-->
+    <!--<item label="Monograms" match="local-index-display-html" params="epidoc monogram"
+      i18n:key="menu-index-monogram"/>-->
     <!--Words and legend’s features-->
-    <item label="Lemmata" match="local-index-display-html" params="epidoc lemma"
-      i18n:key="menu-index-lemma"/>
-    <!--
-    <item label="Legends' cases" match="local-index-display-html" params="epidoc legendsCases"
-      i18n:key="menu-index-legendsCases"/>
-    -->
-    <item label="Metrical legends" match="local-index-display-html" params="epidoc metrical"
-      i18n:key="menu-index-metrical"/>
+    <!--<item label="Lemmata" match="local-index-display-html" params="epidoc lemma"
+      i18n:key="menu-index-lemma"/>-->
+    <!--    <item label="Legends' cases" match="local-index-display-html" params="epidoc legendsCases"
+      i18n:key="menu-index-legendsCases"/>    -->
+    <!--<item label="Metrical legends" match="local-index-display-html" params="epidoc metrical"
+      i18n:key="menu-index-metrical"/>-->
     <item label="Invocations" match="local-index-display-html" params="epidoc invocation"
       i18n:key="menu-index-invocation"/>
 
@@ -70,9 +68,9 @@
     <!--<item label="Byzantine Greek" language_switch="grc" i18n:key="grc"/>-->
     <item label="English" i18n:key="en" language_switch="en"/>
     <item label="French" i18n:key="fr" language_switch="fr"/>
-    <item label="Deutsch" i18n:key="de" language_switch="de"/>
-    <item label="Ελληνικά" i18n:key="el" language_switch="el"/>
-    <item label="Български" i18n:key="bg" language_switch="bg"/>
-    <item label="Italiano" i18n:key="it" language_switch="it"/>
+    <!--<item label="Deutsch" i18n:key="de" language_switch="de"/>-->
+    <!--<item label="Ελληνικά" i18n:key="el" language_switch="el"/>-->
+    <!--<item label="Български" i18n:key="bg" language_switch="bg"/>-->
+    <!--<item label="Italiano" i18n:key="it" language_switch="it"/>-->
   </menu>
 </root>

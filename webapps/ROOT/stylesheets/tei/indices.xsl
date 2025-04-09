@@ -85,7 +85,33 @@
           <xsl:value-of select="$rdf-name" />
         </xsl:when>
         <xsl:otherwise>
-          <xsl:value-of select="."/>
+          <xsl:choose>
+            <xsl:when test="contains(.,'-')">
+              <xsl:variable name="titles">
+                <xsl:for-each select="tokenize(.,'-')">
+                  <title><xsl:value-of select="."/></title>
+                </xsl:for-each>
+              </xsl:variable>
+              <xsl:variable name="title">
+                <xsl:choose>
+                  <xsl:when test="$titles/title[contains(.,concat($language,'|'))]">
+                    <xsl:value-of select="substring-after($titles/title[contains(.,concat($language,'|'))][1],'|')"/>
+                  </xsl:when>
+                  <xsl:otherwise><xsl:value-of select="substring-after($titles/title[contains(.,'en|')][1],'|')"/></xsl:otherwise>
+                </xsl:choose>
+              </xsl:variable>
+              <xsl:if test="normalize-space($title) != ''">
+              <xsl:value-of select="$title"/>
+              </xsl:if>
+            </xsl:when>
+            <xsl:otherwise>  
+              <xsl:if test="normalize-space(.) != ''">
+              <xsl:value-of select="."/>
+              </xsl:if>
+            </xsl:otherwise>
+          </xsl:choose>
+          
+
         </xsl:otherwise>
       </xsl:choose>
     </th>
@@ -98,7 +124,7 @@
   </xsl:template> 
   
   <xsl:template match="str[@name='index_ext_reference']"> <!--added by SigiDoc (Jan Bigalke) for external references in placeName and persName--> 
-    <td>
+    <td style="padding: 0px">
       <xsl:variable name="bibls">
         <xsl:choose>
           <xsl:when test="contains(./text(),'|')">
@@ -113,25 +139,55 @@
       </xsl:variable>
       <xsl:for-each select="$bibls/val">
         <xsl:variable name="tokens">
+          <xsl:if test="tokenize(.,'_')[1] != ''" >
+          <name>
+            <xsl:choose>
+              <xsl:when test="position() = 1"><xsl:text>Pleiades: </xsl:text></xsl:when>
+              <xsl:when test="position() = 2"><xsl:text>Geonames: </xsl:text></xsl:when>
+              <xsl:when test="position() = 3"><xsl:text>TIB: </xsl:text></xsl:when>
+            </xsl:choose><xsl:value-of select="tokenize"/></name>
+          </xsl:if>
           <text><xsl:value-of select="tokenize(.,'_')[1]"/></text>
           <link><xsl:value-of select="tokenize(.,'_')[2]"/></link>
-        </xsl:variable><p>
+        </xsl:variable>
+        <ul style="margin-bottom: 5px;">
+          <xsl:if test="$tokens/name/text() != ''">
+          <li>
+          <span><xsl:value-of select="$tokens/name/text()"/></span>
           <a target="_blank">
             <xsl:attribute name="href">
               <xsl:value-of select="$tokens/link/text()"/>
             </xsl:attribute>
             <xsl:value-of select="$tokens/text/text()"/>
           </a>
-        </p>
+          </li>
+          </xsl:if>
+        </ul>
       </xsl:for-each>
     </td>
   </xsl:template>
   
   <xsl:template match="arr[@name='index_instance_location']">
+    <xsl:variable name="data" select="."/>
+    <xsl:variable name="collections">
+      <xsl:for-each select="./str"> 
+        <name>
+          <xsl:value-of select="tokenize(.,'#')[6]"/>
+        </name>
+      </xsl:for-each>
+    </xsl:variable>
     <td>
-      <ul class="index-instances inline-list">
-        <xsl:apply-templates select="str" />
-      </ul>
+        <xsl:for-each select="distinct-values($collections/name)">        
+          <xsl:variable name="colname" select="."/>
+          <xsl:value-of select="concat($colname, ': ')"/>
+          <ul class="index-instances inline-list">  
+          <xsl:for-each select="distinct-values($data/str[contains(.,$colname)])">
+            <xsl:variable name="content" select="."/>
+            <xsl:apply-templates select="$data/str[./text() = $content][1]"/>
+          </xsl:for-each>
+          </ul>
+        </xsl:for-each>
+
     </td>
   </xsl:template>
   
@@ -162,6 +218,7 @@
   </xsl:template>
 
   <xsl:template match="arr[@name='index_instance_location']/str">
+    
     <!-- This template must be defined in the calling XSLT (eg,
          indices-epidoc.xsl) since the format of the location data is
          not universal. -->

@@ -61,6 +61,7 @@
       <xsl:text>');</xsl:text>
     </xsl:variable>
     <section>
+      
       <p class="title" data-section-title="">
         <!--<a href="#">
           <xsl:attribute name="onclick"><xsl:value-of select="$toggle_facet_items"/></xsl:attribute>-->
@@ -74,6 +75,9 @@
       <div class="content" data-section-content="" id="{@name}" style="display:none;">
         <ul class="no-bullet">
           <xsl:apply-templates mode="search-results"/>
+          <xsl:if test="not(.//int)">
+            <i><i18n:text key="no-facet" /></i>
+          </xsl:if>
         </ul>
       </div>
     </section>
@@ -134,7 +138,9 @@
             <xsl:value-of select="current-grouping-key()"/>
           </div>
 
-          <xsl:apply-templates select="current-group()[self::doc]" mode="detailed-results"/>
+          <xsl:apply-templates select="current-group()[self::doc]" mode="detailed-results">
+            <xsl:with-param name="collection" select="current-grouping-key()"/>
+          </xsl:apply-templates>
         </xsl:for-each-group>
 
         <xsl:call-template name="add-results-pagination"/>
@@ -143,39 +149,82 @@
   </xsl:template>
 
   <xsl:template match="doc" mode="detailed-results">
-
+    <xsl:param name="collection"/>
     <xsl:variable name="short-filepath" select="substring-after(str[@name = 'file_path'], '/')"/>
     <div class="result">
       <div class="result-headline">
-        <p style="width: 85%">
-          <xsl:value-of select="arr[@name = 'document_title']/str[1]"/>
+        <p class="result-title" style="width: 85%">
+          <xsl:choose>
+            <xsl:when test="arr[@name = 'document_title']/str[contains(.,concat($language,'|'))]">
+              <xsl:value-of select="substring-after(arr[@name = 'document_title']/str[contains(.,concat($language,'|'))],'|')"/>
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:value-of select="substring-after(arr[@name = 'document_title']/str[contains(.,'en|')],'|')"/>
+            </xsl:otherwise>
+          </xsl:choose>
         </p>
-        <a href="{kiln:url-for-match('local-epidoc-display-html', ($language, $short-filepath), 0)}"
+        <xsl:variable name="link">
+          <xsl:choose>
+            <xsl:when test="$collection = 'IFEB'">
+              <xsl:value-of select="concat('https://ifeb.sigidoc.huma-num.fr','/fr/seals/', $short-filepath,'.html')"/>
+            </xsl:when>
+            
+            <xsl:when test="normalize-space($collection) = 'Yavuz Tatış collection.' or normalize-space($collection) = 'Yavuz Tatış collection'">
+              <xsl:value-of select="concat('https://tatis.sigidoc.huma-num.fr','/fr/seals/', $short-filepath,'.html')"/>
+            </xsl:when>
+            <xsl:when test="normalize-space($collection) = 'Seyrig'">
+              <xsl:value-of select="concat('https://seyrig.sigidoc.huma-num.fr','/fr/seals/', $short-filepath,'.html')"/>
+            </xsl:when>
+            
+            <xsl:when test="normalize-space($collection) = 'Henri Seyrig Collection'">
+              <xsl:value-of select="concat('https://seyrig.sigidoc.huma-num.fr','/fr/seals/', $short-filepath,'.html')"/>
+            </xsl:when>
+            <xsl:when test="$collection = 'Robert Feind Collection'">
+              <xsl:value-of select="concat('https://feind.sigidoc.cceh.uni-koeln.de','/de/seals/', $short-filepath,'.html')"/>
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:value-of select="kiln:url-for-match('local-epidoc-display-html', ($language, $short-filepath), 0)"/>
+            </xsl:otherwise>
+          </xsl:choose>
+        </xsl:variable>
+        <a href="{$link}"
           > view seal</a>
       </div>
       <div class="result-details hidden">
+      <span>
+      <p>
+        <xsl:value-of select="substring-after(arr[@name = 'translation']/str[contains(.,concat($language,'|'))],concat($language,'|'))"/>
+        </p>
+        
         <p>
-          <xsl:value-of select="arr[@name = 'translation']/str[1]"/>
+          <xsl:value-of select="substring-after(arr[@name = 'translation']/str[1],'|')"/>
         </p>
         <div class="result-metadata">
+          <xsl:if test="arr[@name='origdate']">
           <p class="period">
-            <b>period: </b>
-            <xsl:value-of select="str[@name = 'origdate']"/>
+            <b>Date: </b>
+            <xsl:value-of select="arr[@name = 'origdate']/str"/>
           </p>
-          <p>
+          </xsl:if>
+          <!-- <p>
             <b>mentions: </b>
             <xsl:value-of select="arr[@name = 'personal_names']"/>
-          </p>
+          </p> -->
         </div>
+      </span>
+        
         <div class="thumbcontainer">
           <div class="img-text">
-            <img class="thumbnail" src="/assets/images/snapshot1.jpg"/>
+            <xsl:if test="str[@name='imgr']">
+            <img class="thumbnail" src="{str[@name='imgr']}"/>
             <figcaption class="thumbtext">obverse</figcaption>
-            
+            </xsl:if>
           </div>
           <div class="img-text">
-            <img class="thumbnail" src="/assets/images/snapshot2.jpg"/>
+            <xsl:if test="str[@name='imgv']">
+            <img class="thumbnail" src="{str[@name='imgv']}"/>
             <figcaption class="thumbtext">reverse</figcaption>
+            </xsl:if>
           </div>
         </div>
       </div>
